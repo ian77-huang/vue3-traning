@@ -1,0 +1,154 @@
+:root {
+  --nav-height: 60px;
+  --sidebar-width: 260px;
+  --primary-color: #42b883;
+  --item-padding: 15px 20px;
+  --item-line-height: 1.2;
+}
+
+/* 1. 關鍵修正：清除瀏覽器預設邊距，確保滿板 */
+html,
+body {
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  overflow-x: hidden; /* 防止水平滾動條 */
+  font-family: sans-serif;
+  background: #f0f2f5;
+}
+
+/* 2. 導覽列修正 */
+.navbar {
+  position: fixed;
+  top: 0;
+  left: 0; /* 確保從最左邊開始 */
+  right: 0; /* 確保延伸到最右邊 */
+  width: 100%; /* 強制滿板 */
+  height: 60px;
+  background: white;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 20px; /* 內距保留，讓 Logo 不要貼死邊緣 */
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
+  z-index: 1000; /* 確保層級最高 */
+  box-sizing: border-box; /* 確保 padding 不會撐破 100% 寬度 */
+}
+
+/* 3. 側邊欄位置修正 */
+.sidebar {
+  position: fixed;
+  top: 60px;
+  left: 0;
+  width: 260px;
+  height: calc(100vh - 60px);
+  background: white;
+  border-right: 1px solid #eee;
+  overflow-y: auto;
+  transition: transform 0.3s ease;
+  z-index: 999; /* 稍微低於 navbar */
+}
+
+/* 4. 內容區修正 */
+.main-content {
+  margin-left: 260px;
+  padding-top: 50px;
+  padding-left: 20px;
+  padding-right: 20px;
+  min-height: 100vh;
+}
+
+@media (max-width: 768px) {
+  .main-content {
+    margin-left: 0; /* 手機版內容滿板 */
+  }
+}
+
+.overlay {
+  display: none;
+}
+
+/* 響應式邏輯 */
+@media (max-width: 768px) {
+  .menu-icon {
+    display: block;
+  }
+
+  .sidebar {
+    transform: translateX(-100%);
+  }
+
+  .sidebar.show {
+    transform: translateX(0);
+  }
+
+  .main-content {
+    margin-left: 0;
+  }
+
+  .overlay.show {
+    display: block;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.4);
+    z-index: 100;
+  }
+}
+
+/* Page List 樣式 */
+.page-list {
+  list-style: none;
+}
+.page-list li a {
+  display: block;
+  padding: var(--item-padding);
+  line-height: var(--item-line-height);
+  color: #444;
+  text-decoration: none;
+  transition: 0.2s;
+  box-sizing: border-box;
+}
+.page-list li.active {
+  background: #e6f7ef;
+  border-right: 4px solid #42b883;
+}
+.nav-left {
+  display: flex; /* 核心：讓子元素併排 */
+  align-items: center; /* 讓三條線 Logo 垂直置中對齊 */
+  gap: 15px; /* 設定按鈕跟 Logo 之間的間距 */
+}
+
+.menu-icon {
+  cursor: pointer;
+  font-size: 1.5rem;
+  line-height: 1; /* 確保圖示高度不會撐開 Navbar */
+  display: none; /* 預設隱藏，手機版才開啟 */
+}
+
+/* 當螢幕小於 768px 時，顯示三條線按鈕並與 Logo 併行 */
+@media (max-width: 768px) {
+  .menu-icon {
+    display: block; /* 手機版顯示按鈕 */
+  }
+
+  .logo {
+    font-size: 1.1rem; /* 手機版 Logo 稍微縮小一點點避免太擠 */
+  }
+}
+/* 1. 修正 Sidebar Header */
+.sidebar-header {
+  display: flex; /* 使用 flex 確保垂直置中 */
+  align-items: center;
+  padding: var(--item-padding); /* 使用跟連結一樣的 padding */
+  line-height: var(--item-line-height);
+
+  font-size: 0.8rem; /* 雖然高度一樣，但標題字級可以維持小一點 */
+  color: #999;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  border-bottom: 1px solid #f0f0f0; /* 選配：加一條細線區隔 */
+  box-sizing: border-box;
+}
