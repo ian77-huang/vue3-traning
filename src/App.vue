@@ -28,6 +28,12 @@ const pages = ref<{ id: number; title: string; active: boolean; url: string }[]>
     active: false,
     url: '/04/01',
   },
+  {
+    id: 5,
+    title: '04-02. Template Syntax - v-html',
+    active: false,
+    url: '/04/02',
+  },
 ])
 
 onMounted(() => {
