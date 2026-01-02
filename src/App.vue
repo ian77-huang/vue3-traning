@@ -1,8 +1,6 @@
 <script setup lang="ts">
 import { ref, onMounted } from 'vue'
 
-import './root.css'
-
 // 定義側邊欄的開關狀態
 const isSidebarOpen = ref(false)
 
@@ -70,7 +68,7 @@ onMounted(() => {
     <div class="overlay" :class="{ show: isSidebarOpen }" @click="closeSidebar"></div>
 
     <main class="main-content">
-      <section class="content-card">
+      <section class="content-card mt-5">
         <h1>{{ pages.find((p) => p.active)?.title }}</h1>
         <div style="height: 1000px"><router-view /></div>
       </section>
