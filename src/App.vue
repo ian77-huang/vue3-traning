@@ -22,7 +22,12 @@ const pages = ref<{ id: number; title: string; active: boolean; url: string }[]>
   { id: 2, title: '03-01. Ref 深層響應範例', active: false, url: '/03/1' },
   { id: 3, title: '03-02. Reactive 範例', active: false, url: '/03/2' },
   { id: 4, title: '03-03. nextTick 範例', active: false, url: '/03/3' },
-  // { id: 5, title: '05. Template Syntax', active: false },
+  {
+    id: 5,
+    title: '04-01. Template Syntax - 傳統 JavaScript 和 Mustache 語法不同',
+    active: false,
+    url: '/04/01',
+  },
 ])
 
 onMounted(() => {
@@ -30,7 +35,6 @@ onMounted(() => {
   const page = pages.value.find((v) => v.url === url.pathname)
   if (page) {
     page.active = true
-    console.log(url.pathname, page)
   }
 })
 </script>
