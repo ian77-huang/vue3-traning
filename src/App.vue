@@ -1,5 +1,9 @@
 <script setup lang="ts">
+import type { NavPages } from './types'
+
 import { ref, onMounted } from 'vue'
+
+import { dataNavPages } from './config'
 
 // 定義側邊欄的開關狀態
 const isSidebarOpen = ref(false)
@@ -15,24 +19,7 @@ const closeSidebar = () => {
 }
 
 // 模擬 Page List 資料
-const pages = ref<{ id: number; title: string; active: boolean; url: string }[]>([
-  // { id: 1, title: '01. Vue 3 簡介', active: false },
-  { id: 2, title: '03-01. Ref 深層響應範例', active: false, url: '/03/1' },
-  { id: 3, title: '03-02. Reactive 範例', active: false, url: '/03/2' },
-  { id: 4, title: '03-03. nextTick 範例', active: false, url: '/03/3' },
-  {
-    id: 5,
-    title: '04-01. Template Syntax - 傳統 JavaScript 和 Mustache 語法不同',
-    active: false,
-    url: '/04/01',
-  },
-  {
-    id: 5,
-    title: '04-02. Template Syntax - v-html',
-    active: false,
-    url: '/04/02',
-  },
-])
+const pages = ref<NavPages>(dataNavPages)
 
 onMounted(() => {
   const url = new URL(window.location.href)
