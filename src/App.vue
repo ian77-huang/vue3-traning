@@ -44,7 +44,7 @@ onMounted(() => {
     <aside class="sidebar" :class="{ show: isSidebarOpen }">
       <div class="sidebar-header">課程章節</div>
       <ul class="page-list">
-        <li v-for="page in pages" :key="page.id" :class="{ active: page.active }">
+        <li v-for="(page, index) in pages" :key="index" :class="{ active: page.active }">
           <a :href="page.url" active-class="active">
             {{ page.title }}
           </a>

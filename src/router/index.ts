@@ -9,6 +9,7 @@ import MainView33 from '../app/03/3/MainView.vue'
 import MainView41 from '../app/04/01/MainView.vue'
 import MainView42 from '../app/04/02/MainView.vue'
 import MainView43 from '../app/04/03/MainView.vue'
+import MainView44 from '../app/04/04/MainView.vue'
 
 const routes: RouteRecordRaw[] = [
   { path: '/03/1', component: MainView31 },
@@ -17,6 +18,7 @@ const routes: RouteRecordRaw[] = [
   { path: '/04/01', component: MainView41 },
   { path: '/04/02', component: MainView42 },
   { path: '/04/03', component: MainView43 },
+  { path: '/04/04', component: MainView44 },
   { path: '/', component: AppView },
 ]
 
