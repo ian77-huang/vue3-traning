@@ -28,10 +28,10 @@ const isModalOpen = ref<boolean>(false)
       </div>
     </div>
     <div class="flex flex-col gap-5 mt-5">
-      <button v-if="isRole !== 0" @click="() => (isRole = 0)">來賓</button>
-      <button v-if="isRole !== 1" @click="() => (isRole = 1)">會員</button>
-      <button v-if="isRole !== 2" @click="() => (isRole = 2)">管理者</button>
-      <button v-if="isRole !== 9999" @click="() => (isRole = 9999)">未設定</button>
+      <button class="primary" v-if="isRole !== 0" @click="() => (isRole = 0)">來賓</button>
+      <button class="primary" v-if="isRole !== 1" @click="() => (isRole = 1)">會員</button>
+      <button class="primary" v-if="isRole !== 2" @click="() => (isRole = 2)">管理者</button>
+      <button class="primary" v-if="isRole !== 9999" @click="() => (isRole = 9999)">未設定</button>
     </div>
   </div>
   <div
@@ -45,7 +45,9 @@ const isModalOpen = ref<boolean>(false)
         <li>1：會員 - 可發表評論</li>
         <li>2：管理者 - 擁有最高權限</li>
       </ul>
-      <button @click="isModalOpen = false" class="mt-6 bg-gray-200 px-4 py-2 rounded">關閉</button>
+      <button @click="isModalOpen = false" class="primary mt-6 bg-gray-200 px-4 py-2 rounded">
+        關閉
+      </button>
     </div>
   </div>
   <div v-show="isModalOpen" class="bg-black/70 fixed inset-0 z-1000"></div>

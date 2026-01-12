@@ -12,7 +12,7 @@ const inputAttrs = { id: 'my_input', type: 'text', value: '我是vue 3' }
     <img class="size-25" v-bind:src="imageUrl" v-bind:id />
     <div>v-bind 標籤</div>
     <img class="size-25" :src="imageUrl" :id />
-    <button :disabled="isLocked" @click="() => console.log(`按鈕沒有被禁用成功`)">
+    <button class="primary" :disabled="isLocked" @click="() => console.log(`按鈕沒有被禁用成功`)">
       被禁用的按鈕
     </button>
     <div class="mt-5">綁定多屬性的物件</div>

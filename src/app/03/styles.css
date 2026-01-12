@@ -14,7 +14,7 @@
 .controls div {
   margin-bottom: 10px;
 }
-button {
+button.primary {
   padding: 10px 15px;
   cursor: pointer;
   border: none;
@@ -24,7 +24,7 @@ button {
   transition: 0.2s;
   width: 100%;
 }
-button:hover {
+button.primary:hover {
   background: #0056b3;
 }
 .info {

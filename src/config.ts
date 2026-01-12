@@ -25,4 +25,9 @@ export const dataNavPages: NavPages = [
     active: false,
     url: '/04/04',
   },
+  {
+    title: '04-05. Template Syntax - v-for',
+    active: false,
+    url: '/04/05',
+  },
 ]

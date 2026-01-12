@@ -48,11 +48,15 @@ const pushItem = async () => {
     <h2>Vue 3 - nextTick 範例</h2>
     <p class="info">下方每個卡片都是一個獨立的子元件。當卡片閃爍時，表示該元件執行了更新。</p>
     <div class="controls">
-      <div><button @click="addItem(1)">增加物品數 1</button></div>
-      <div><button @click="addItem(2)">增加物品數 2</button></div>
-      <div v-if="list.length >= 3"><button @click="addItem(3)">增加物品數 3</button></div>
-      <div v-if="list.length === 2"><button @click="pushItem()">加入物品 3</button></div>
-      <div><button @click="resetItemAll">全部重置</button></div>
+      <div><button class="primary" @click="addItem(1)">增加物品數 1</button></div>
+      <div><button class="primary" @click="addItem(2)">增加物品數 2</button></div>
+      <div v-if="list.length >= 3">
+        <button class="primary" @click="addItem(3)">增加物品數 3</button>
+      </div>
+      <div v-if="list.length === 2">
+        <button class="primary" @click="pushItem()">加入物品 3</button>
+      </div>
+      <div><button class="primary" @click="resetItemAll">全部重置</button></div>
     </div>
     <div ref="refListItems">
       <ListItem

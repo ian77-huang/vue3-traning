@@ -1,0 +1,8 @@
+export type User = {
+  id: number
+  name: string
+  role: string
+  email: string
+  avatar: string
+  status: string
+}

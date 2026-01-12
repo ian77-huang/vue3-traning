@@ -39,9 +39,9 @@ const resetItemAll = () => {
     <h2>Vue 3 - reactive - 深層響應</h2>
     <p class="info">下方每個卡片都是一個獨立的子元件。當卡片閃爍時，表示該元件執行了更新。</p>
     <div class="controls">
-      <div><button @click="addItem(1)">增加物品數 1</button></div>
-      <div><button @click="addItem(2)">增加物品數 2</button></div>
-      <div><button @click="resetItemAll">全部重置</button></div>
+      <div><button class="primary" @click="addItem(1)">增加物品數 1</button></div>
+      <div><button class="primary" @click="addItem(2)">增加物品數 2</button></div>
+      <div><button class="primary" @click="resetItemAll">全部重置</button></div>
     </div>
     <ListItem
       v-for="item in list"
