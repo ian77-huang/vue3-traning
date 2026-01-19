@@ -1,6 +1,61 @@
 @import 'tailwindcss';
 
-:root {
+@theme {
+  --radius-base: 0.5rem;
+
+  --color-brand: #3b82f6;
+  --color-brand-strong: #1d4ed8;
+  --color-brand-medium: #93c5fd;
+
+  --color-success: #22c55e;
+  --color-success-strong: #16a34a;
+  --color-danger: #ef4444;
+  --color-danger-strong: #dc2626;
+
+  --color-default-medium: #d1d5db;
+  --color-neutral-secondary-medium: #f3f4f6;
+  --color-heading: #111827;
+  --color-body: #4b5563;
+}
+
+@utility btn-base {
+  @apply box-border border font-medium leading-5 rounded-base text-sm px-4 py-2.5 shadow-sm focus:ring-4 focus:outline-none transition-all duration-200 cursor-pointer;
+}
+
+@utility btn-default {
+  @apply btn-base text-white bg-brand border-transparent hover:bg-brand-strong focus:ring-brand-medium;
+}
+
+@utility btn-success {
+  @apply btn-base text-white bg-success border-transparent hover:bg-success-strong focus:ring-green-200;
+}
+
+@utility btn-danger {
+  @apply btn-base text-white bg-danger border-transparent hover:bg-danger-strong focus:ring-red-200;
+}
+
+@utility btn-secondary {
+  @apply btn-base text-gray-700 bg-gray-100 border-gray-300 hover:bg-gray-200 focus:ring-gray-200;
+}
+@utility input-default {
+  @apply bg-neutral-secondary-medium border border-default-medium text-heading text-sm rounded-base
+           block w-full px-3 py-2.5 shadow-xs transition-all duration-200
+           placeholder:text-body
+           focus:ring-2 focus:ring-brand focus:border-brand focus:outline-none;
+}
+
+@utility label-default {
+  @apply block mb-2 text-sm font-medium text-heading;
+}
+
+@utility callout-default {
+  @apply p-4 bg-gray-100 rounded-base border-l-4 border-brand shadow-sm transition-all duration-300;
+}
+
+@utility callout-event {
+  @apply p-4 bg-slate-50 rounded-base border-l-4 border-slate-400 shadow-sm transition-all duration-300;
+}
+input :root {
   --nav-height: 60px;
   --sidebar-width: 260px;
   --primary-color: #42b883;
@@ -8,36 +63,33 @@
   --item-line-height: 1.2;
 }
 
-/* 1. 關鍵修正：清除瀏覽器預設邊距，確保滿板 */
 html,
 body {
   margin: 0;
   padding: 0;
   width: 100%;
-  overflow-x: hidden; /* 防止水平滾動條 */
+  overflow-x: hidden;
   font-family: sans-serif;
   background: #f0f2f5;
 }
 
-/* 2. 導覽列修正 */
 .navbar {
   position: fixed;
   top: 0;
-  left: 0; /* 確保從最左邊開始 */
-  right: 0; /* 確保延伸到最右邊 */
-  width: 100%; /* 強制滿板 */
+  left: 0;
+  right: 0;
+  width: 100%;
   height: 60px;
   background: white;
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 0 20px; /* 內距保留，讓 Logo 不要貼死邊緣 */
+  padding: 0 20px;
   box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
-  z-index: 1000; /* 確保層級最高 */
-  box-sizing: border-box; /* 確保 padding 不會撐破 100% 寬度 */
+  z-index: 1000;
+  box-sizing: border-box;
 }
 
-/* 3. 側邊欄位置修正 */
 .sidebar {
   position: fixed;
   top: 60px;
@@ -48,10 +100,9 @@ body {
   border-right: 1px solid #eee;
   overflow-y: auto;
   transition: transform 0.3s ease;
-  z-index: 999; /* 稍微低於 navbar */
+  z-index: 999;
 }
 
-/* 4. 內容區修正 */
 .main-content {
   margin-left: 260px;
   padding-top: 50px;
@@ -62,7 +113,7 @@ body {
 
 @media (max-width: 768px) {
   .main-content {
-    margin-left: 0; /* 手機版內容滿板 */
+    margin-left: 0;
   }
 }
 
@@ -70,7 +121,6 @@ body {
   display: none;
 }
 
-/* 響應式邏輯 */
 @media (max-width: 768px) {
   .menu-icon {
     display: block;
@@ -100,7 +150,6 @@ body {
   }
 }
 
-/* Page List 樣式 */
 .page-list {
   list-style: none;
 }
@@ -118,39 +167,37 @@ body {
   border-right: 4px solid #42b883;
 }
 .nav-left {
-  display: flex; /* 核心：讓子元素併排 */
-  align-items: center; /* 讓三條線 Logo 垂直置中對齊 */
-  gap: 15px; /* 設定按鈕跟 Logo 之間的間距 */
+  display: flex;
+  align-items: center;
+  gap: 15px;
 }
 
 .menu-icon {
   cursor: pointer;
   font-size: 1.5rem;
-  line-height: 1; /* 確保圖示高度不會撐開 Navbar */
-  display: none; /* 預設隱藏，手機版才開啟 */
+  line-height: 1;
+  display: none;
 }
 
-/* 當螢幕小於 768px 時，顯示三條線按鈕並與 Logo 併行 */
 @media (max-width: 768px) {
   .menu-icon {
-    display: block; /* 手機版顯示按鈕 */
+    display: block;
   }
 
   .logo {
-    font-size: 1.1rem; /* 手機版 Logo 稍微縮小一點點避免太擠 */
+    font-size: 1.1rem;
   }
 }
-/* 1. 修正 Sidebar Header */
 .sidebar-header {
-  display: flex; /* 使用 flex 確保垂直置中 */
+  display: flex;
   align-items: center;
-  padding: var(--item-padding); /* 使用跟連結一樣的 padding */
+  padding: var(--item-padding);
   line-height: var(--item-line-height);
 
-  font-size: 0.8rem; /* 雖然高度一樣，但標題字級可以維持小一點 */
+  font-size: 0.8rem;
   color: #999;
   text-transform: uppercase;
   letter-spacing: 1px;
-  border-bottom: 1px solid #f0f0f0; /* 選配：加一條細線區隔 */
+  border-bottom: 1px solid #f0f0f0;
   box-sizing: border-box;
 }

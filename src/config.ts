@@ -30,4 +30,44 @@ export const dataNavPages: NavPages = [
     active: false,
     url: '/04/05',
   },
+  {
+    title: '04-06-01. Template Syntax - v-on - 基本用法',
+    active: false,
+    url: '/04/06/01',
+  },
+  {
+    title: '04-06-02. Template Syntax - v-on - inline',
+    active: false,
+    url: '/04/06/02',
+  },
+  {
+    title: '04-06-03. Template Syntax - v-on - 將參數帶入函數中',
+    active: false,
+    url: '/04/06/03',
+  },
+  {
+    title: '04-06-04. Template Syntax - v-on - 取得事件的物件 - $event',
+    active: false,
+    url: '/04/06/04',
+  },
+  {
+    title: '04-06-05. Template Syntax - v-on - 常用事件',
+    active: false,
+    url: '/04/06/05',
+  },
+  {
+    title: '04-06-06. Template Syntax - v-on - 事件修飾符(Event Modifiers)',
+    active: false,
+    url: '/04/06/06',
+  },
+  {
+    title: '04-06-07. Template Syntax - v-on - 鍵盤修飾符(key Modifiers)',
+    active: false,
+    url: '/04/06/07',
+  },
+  {
+    title: '04-06-08. Template Syntax - v-on - 滑鼠按鈕修飾符(Mouse Button Modifiers)',
+    active: false,
+    url: '/04/06/08',
+  },
 ]
